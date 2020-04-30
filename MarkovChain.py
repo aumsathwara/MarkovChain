@@ -24,7 +24,7 @@ def convertFreqIntoProb(T):
     return T
 convertFreqIntoProb(T)
 
-with open("C:\\Users\\Aum Sathwara\\Downloads\\english_speech_2.txt") as f:
+with open("english_speech_2.txt") as f:
   text = f.read().lower()
 print(text)
 def trainMarkovChain(text,k=4):
