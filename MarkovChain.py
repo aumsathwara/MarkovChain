@@ -24,7 +24,7 @@ def convertFreqIntoProb(T):
     return T
 convertFreqIntoProb(T)
 
-with open("english_speech_2.txt") as f:
+with open("C:\\Users\\Aum Sathwara\\Downloads\\english_speech_2.txt") as f:
   text = f.read().lower()
 print(text)
 def trainMarkovChain(text,k=4):
@@ -32,7 +32,7 @@ def trainMarkovChain(text,k=4):
   T = convertFreqIntoProb(T)
   return T
 T = trainMarkovChain(text)
-print(T)
+#print(T)
 import numpy as np
 def sample_text(ctx,T,k=4):
   ctx = ctx[-k:]
@@ -52,4 +52,5 @@ def generateText(starting_sent, k=4, maxLen=1000):
     return sentence
 
 fake =generateText("people")
+print("----------------------------------------------------------------------------------")
 print(fake)
