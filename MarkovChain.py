@@ -1,7 +1,10 @@
 data = "hello hello helli"
 def generateTable(data, k=4):
+    #Creating a Dictionary
     T = {}
+    #To loop over speech
     for i in range(len(data) - k):
+        #to create lists
         X = data[i:i + k]
         y = data[i + k]
         if T.get(X) is None:
@@ -15,7 +18,7 @@ def generateTable(data, k=4):
     return T
 T = generateTable(data)
 T
-
+#Converting frequency into probability
 def convertFreqIntoProb(T):
     for kx in T.keys():
         s = float(sum(T[kx].values()))
@@ -23,14 +26,17 @@ def convertFreqIntoProb(T):
             T[kx][k] =  T[kx][k]/s
     return T
 convertFreqIntoProb(T)
-
-with open("C:\\Users\\Aum Sathwara\\Downloads\\english_speech_2.txt") as f:
+#opening speech
+with open("english_speech_2.txt") as f:
+    #converting file to lowercase
   text = f.read().lower()
 print(text)
+#Markov Chain
 def trainMarkovChain(text,k=4):
   T = generateTable(text)
   T = convertFreqIntoProb(T)
   return T
+#Passing speech into markov chain
 T = trainMarkovChain(text)
 #print(T)
 import numpy as np
